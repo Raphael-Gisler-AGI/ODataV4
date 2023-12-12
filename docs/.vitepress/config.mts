@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: "/ODataV4/",
   title: "OData V4",
   description: "A documentation for working with OData V4 using CAP and UI5",
   themeConfig: {
