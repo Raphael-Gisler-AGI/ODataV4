@@ -1,29 +1,46 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from "vitepress";
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: "/ODataV4/",
   title: "OData V4",
   description: "A documentation for working with OData V4 using CAP and UI5",
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Documentation', link: '/ui5' }
+      { text: "Home", link: "/" },
+      { text: "Documentation", link: "/ui5/" },
     ],
 
     sidebar: [
       {
-        text: 'Documentation',
+        text: "UI5",
+        link: "/ui5/",
+        collapsed: false,
         items: [
-          { text: 'UI5', link: '/ui5' },
-          { text: 'CAP', link: '/cap' }
-        ]
-      }
+          {
+            text: "Drafts",
+            link: "/ui5/drafts",
+          },
+          {
+            text: "Batch Control",
+            link: "/ui5/batchcontrol",
+          },
+        ],
+      },
+      {
+        text: "CAP",
+        link: "/cap/",
+        collapsed: true,
+        items: [
+          {
+            text: "Events",
+            link: "/cap/events",
+          },
+        ],
+      },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Raphael-Gisler-AGI/ODataV4' }
-    ]
-  }
-})
+      { icon: "github", link: "https://github.com/Raphael-Gisler-AGI/ODataV4" },
+    ],
+  },
+});
