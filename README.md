@@ -1,6 +1,7 @@
 # OData V4
 
 All you need to know about how to use OData V4 with CAP and UI5
+
 The website is hosted [here](https://raphael-gisler-agi.github.io/ODataV4/)
 
 ## Getting Started
@@ -35,3 +36,6 @@ The website is hosted [here](https://raphael-gisler-agi.github.io/ODataV4/)
   ```sh
   npm run docs:preview
   ```
+
+## About
+A documentation created by the academy for the academy
