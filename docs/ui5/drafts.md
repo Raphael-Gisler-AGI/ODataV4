@@ -1,18 +1,75 @@
 # Drafts
-## What is draft handling?
-## CRUD
-### Create
-```javascript
-const entries = this.getModel().bindList("/Entries");
-const result = entries.create({ // [!code focus]
-    startTime: new Date(), // [!code focus]
-    endTime: new Date(), // [!code focus]
-}); // [!code focus]
-this.getView().setBusy(true);
-await result.created(); // [!code focus]
-this.getView().setBusy(false);
+First to enable Draft handling you have to enable drafts for your entity.
 ```
-[UI5 Documentation](https://sapui5.hana.ondemand.com/sdk/#/api/sap.ui.model.odata.v4.ODataListBinding%23methods/create)
+service Service {
+    @odata.draft.enabled
+    entity Entity  as
+        projection on db.Entity;
+}
+```
+## What is draft handling?
+A draft is a temporary copy of an object, indicated by the IsActiveEntity column which is part of the key. An object can also have a draft, indicated by the HasDraftEntity column.
+
+Entities with draft functionality cannot be created or edited directly. These functions are performed on the drafts and are subsequently applied to the object.
+
+When we create, only a draft is created and not an actual object. In order to create the object, we have to 'activate' the draft.
+
+To edit an object, a draft must first be created. The draft can then be edited before being activated.
+
 ### Read
-### Update
-### Delete
+If we do a normal binding as we always would we only objects are shown and not drafts.
+
+To also see Drafts you have to write a fliter to do so.
+```javascript
+this.byId("Table").bindItems({
+  path: "/Objects",
+  template: this.byId("template"),
+  filters: new Filter("IsActiveEntity", FilterOperator.EQ, false) // [!code focus]
+});
+
+```
+Alternatively, you can view both objects without drafts and drafts simultaneously like this.
+```javascript
+this.byId("Table").bindItems({
+  path: "/Objects",
+  template: this.byId("template"),
+  filters: new Filter({ // [!code focus]
+    filters: [ // [!code focus]
+      new Filter( // [!code focus]
+        "SiblingEntity/IsActiveEntity", // [!code focus]
+        FilterOperator.EQ, // [!code focus]
+        null // [!code focus]
+      ), // [!code focus]
+      new Filter("IsActiveEntity", FilterOperator.EQ, false), // [!code focus]
+    ], // [!code focus]
+    and: true, // [!code focus]
+  }) // [!code focus]
+});
+
+```
+### Create a new draft
+```javascript
+const pNewObject = this.getModel().bindList("/Objects").create(); // [!code focus]
+this.getView().setBusy(true);
+const oNewObject = await result.created(); // [!code focus]
+this.getView().setBusy(false);
+oNewObject.getPath(); // [!code focus]
+```
+The getPath() function can be used to bind the element to whatever we want.
+### Edit an existing object
+To edit an existing object, it is necessary to create a draft of it. However, since objects cannot have multiple drafts simultaneously, it is recommended to check for existing drafts first.
+```javascript
+if (context.getProperty("HasDraftEntity")) return
+```
+Cap automatically creates actions to create drafts from objects. To do this, write a binding to an object as usual and write the function at the end. Be careful not to forget that IsActiveEntity is part of the key.
+```javascript
+this.getOwnerComponent()
+    .getModel()
+    .bindContext(
+    `${context.getPath()}/drafts.draftEdit(...)`,
+    context
+    )
+    .execute();
+```
+
+### Activate
