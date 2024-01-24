@@ -61,7 +61,7 @@ To edit an existing object, it is necessary to create a draft of it. However, si
 ```javascript
 if (context.getProperty("HasDraftEntity")) return
 ```
-Cap automatically creates actions to create drafts from objects. To do this, write a binding to an object as usual and write the function at the end. Be careful not to forget that IsActiveEntity is part of the key.
+To create a draft from an object, we need to write a normal context binding (element binding) and then call the cap created. Be careful not to forget that IsActiveEntity is part of the key.
 ```javascript
 this.getOwnerComponent()
     .getModel()
@@ -71,5 +71,14 @@ this.getOwnerComponent()
     )
     .execute();
 ```
-
 ### Activate
+To activate a draft, we need to write a normal context binding (element binding) and then call the cap created. Be careful not to forget that IsActiveEntity is part of the key.
+```javascript
+this.getOwnerComponent()
+    .getModel()
+    .bindContext(
+        `${context.getPath()}/drafts.draftActivate(...)`,
+        context
+    )
+    .execute();
+```
