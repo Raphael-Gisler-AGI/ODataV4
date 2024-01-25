@@ -24,6 +24,10 @@ export default defineConfig({
             text: "Batch Control",
             link: "/ui5/batchcontrol",
           },
+          {
+            text: "Flexibel Programing Model",
+            link: "/ui5/fmp",
+          },
         ],
       },
       {
@@ -35,6 +39,10 @@ export default defineConfig({
             text: "Events",
             link: "/cap/events",
           },
+          {
+            text: "Remote Service",
+            link: "/cap/remoteservice",
+          }
         ],
       },
     ],
