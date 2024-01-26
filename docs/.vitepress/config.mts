@@ -26,7 +26,7 @@ export default defineConfig({
           },
           {
             text: "Flexibel Programing Model",
-            link: "/ui5/fmp",
+            link: "/ui5/fpm",
           },
         ],
       },
