@@ -19,7 +19,7 @@ To edit an object, a draft must first be created. The draft can then be edited b
 ### Read
 If we do a normal binding as we always would we only objects are shown and not drafts.
 
-To also see Drafts you have to write a fliter to do so.
+To also see Drafts you have to write a filter to do so.
 ```javascript
 this.byId("Table").bindItems({
   path: "/Objects",
