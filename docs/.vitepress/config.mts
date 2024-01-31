@@ -1,5 +1,7 @@
 import { defineConfig } from "vitepress";
 
+const samplesBaseUrl = "https://github.com/Michael-Galambos-AGI/bookStore";
+
 export default defineConfig({
   base: "/ODataV4/",
   title: "OData V4",
@@ -8,6 +10,17 @@ export default defineConfig({
     nav: [
       { text: "Home", link: "/" },
       { text: "Documentation", link: "/ui5/" },
+      {
+        text: "Samples",
+        items: [
+          { text: "Drafts", link: `${samplesBaseUrl}/tree/master/app/draft` },
+          {
+            text: "Batch Control",
+            link: `${samplesBaseUrl}/tree/master/app/batch`,
+          },
+          { text: "FPM", link: `${samplesBaseUrl}/tree/master/app/batch` },
+        ],
+      },
     ],
 
     sidebar: [
@@ -42,7 +55,7 @@ export default defineConfig({
           {
             text: "Remote Service",
             link: "/cap/remoteservice",
-          }
+          },
         ],
       },
     ],

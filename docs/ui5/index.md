@@ -1,10 +1,6 @@
 # UI5 Page
 To implement an OData V4 cap service
 
-
-
-
-
 ## Basics
 OData V4 is bound directly to the frontend and any changes to an object are sent directly to the backend as a patch request.
 
@@ -28,8 +24,8 @@ The sPath sometimes comes up when talking about databindings.
 localhost:4004/service/**entity(key)**
 The **bold** part is what we call the sPath and is how we search for individual entities.
 
-## CRUD
-### Createv
+# CRUD
+## Create
 Creating a new entity is only possible on **List Bindings (Aggragation Bindings)** using the **create()** function. 
 
 ```javascript

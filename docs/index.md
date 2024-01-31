@@ -18,8 +18,9 @@ features:
     details: How to handle drafts in UI5 using OData V4
     link: /ui5/drafts
   - title: Batch Control
-    details: How to implement batch control in UI5 using OData V4
     link: /ui5/batchcontrol
+    details: How to implement batch control in UI5 using OData V4
   - title: Flexible Programming Model
+    link: /ui5/fpm
     details: How to utilize the Flexible Programming Model
 ---
