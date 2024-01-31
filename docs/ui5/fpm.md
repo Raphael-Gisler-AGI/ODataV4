@@ -1,7 +1,9 @@
 # Flexibel Programing Model (FPM)
 
 Similar to smart tables and smart lists, FMP allows us to use Fiori elements in our custom applications, not only for OData V2 but also for V4.
+
 The Flexible Programming Model allows you to combine the flexibility of a freestyle app with the convenience of cds annotations.
+
 This is achieved by linking to your CDS annotations.
 If you want to learn more about CDS annotations, visit [DJ Adams's blog.](https://qmacro.org/blog/posts/2023/03/10/a-deep-dive-into-odata-and-cds-annotations/)
 
@@ -29,15 +31,25 @@ Building blocks allow you to grab fiori elements using your own annotations and 
 
 Try out the different Building Blocks [here](https://sapui5.hana.ondemand.com/test-resources/sap/fe/core/fpmExplorer/index.html#/buildingBlocks/buildingBlockOverview).
 
+::: info
+The metapath defines **what** annotation is being searched for.
+
+The contextPath defines **in which** entity the annotation is being searched.
+:::
+
+In this case we are searching for the SelectionFields and a LineItem inside of the Entity Books.
+
 ```xml
 <macros:FilterBar
-    id="FilterBar"
+    id="BooksFilterBar"
     metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
+    contextPath="/Books"
     liveMode="true" />
 <macros:Table
-    id="Table"
+    id="BooksTable"
     metaPath="@com.sap.vocabularies.UI.v1.LineItem"
-    filterBar="FilterBar" />
+    contextPath="/Books"
+    filterBar="BooksFilterBar" />
 ```
 
 Defining the annotations:
