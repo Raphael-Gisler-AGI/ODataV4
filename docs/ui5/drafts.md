@@ -2,7 +2,7 @@
 
 First to enable Draft handling you have to enable drafts for your entity.
 
-```
+```javascript
 service Service {
     @odata.draft.enabled
     entity Entity  as
