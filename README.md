@@ -2,7 +2,7 @@
 
 All you need to know about how to use OData V4 with CAP and UI5
 
-The website is hosted [here](https://raphael-gisler-agi.github.io/ODataV4/)
+The website is hosted [here](https://raphael-gisler-agi.github.io/ODataV4/).
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ The website is hosted [here](https://raphael-gisler-agi.github.io/ODataV4/)
 
 1. Clone the Repository
    ```sh
-   git pull https://github.com/Raphael-Gisler-AGI/ODataV4.git
+   git clone https://github.com/Raphael-Gisler-AGI/ODataV4.git
    ```
 2. Install NPM packages
    ```sh
