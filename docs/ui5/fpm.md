@@ -39,7 +39,9 @@ The contextPath defines **in which** entity the annotation is being searched.
 
 In this case we are searching for the SelectionFields and a LineItem inside of the Entity Books.
 
-```xml
+::: code-group
+
+```xml [Main.view.xml]
 <macros:FilterBar
     id="BooksFilterBar"
     metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
@@ -52,9 +54,13 @@ In this case we are searching for the SelectionFields and a LineItem inside of t
     filterBar="BooksFilterBar" />
 ```
 
+:::
+
 Defining the annotations:
 
-```javascript
+::: code-group
+
+```javascript [annotations.cds]
 UI: {
     SelectionFields: [
         title
@@ -62,9 +68,11 @@ UI: {
     LineItem       : [
         {Value: title},
         {Value: genre.name}
-    ],
+    ]
 }
 ```
+
+:::
 
 This results in us having a fully functioning Fiori Elemnts Table and FilterBar inside of our freestyle app.
 
@@ -78,7 +86,9 @@ So let's have a closer look at what it does.
 
 Routes are defined in the same way as in a standard UI5 app.
 
-```json
+::: code-group
+
+```json [manifest.json]
 "routes": [
     {
         "name": "BooksMain",
@@ -93,7 +103,19 @@ Routes are defined in the same way as in a standard UI5 app.
 ]
 ```
 
-```json
+:::
+
+For our targets we have to define the type as Component instead of View.
+
+The name has to be the path to the FPM Component ("sap.fe.core.fpm").
+
+Inside of the settings we define the contextPath which is the entity that will be binded to the page.
+
+The navigation is also defined inside of the settings. The key of the navigation object is the entity that we want to navigate from.
+
+::: code-group
+
+```json [manifest.json]
 "targets": {
     "BooksMain": {
         "type": "Component",
@@ -126,3 +148,52 @@ Routes are defined in the same way as in a standard UI5 app.
     }
 }
 ```
+
+:::
+
+### NavBar
+
+If you want something like a Navigation Bar or a Side Bar that doesn't change when routing then you need to implement a NavContainer
+
+For this you have to create a view that contains a [NavContainer](https://sapui5.hana.ondemand.com/#/entity/sap.m.NavContainer).
+You should also give it an id. This will later be used in the manifest.json to define the config of all routes.
+
+The same view needs to extend to a [NavContainer Controller](https://sapui5.hana.ondemand.com/#/api/sap.fe.core.rootView.NavContainer).
+
+::: tip
+If you extend to the NavContainer controller directly you can use the class path: **sap.fe.core.rootView.NavContainer**
+
+If you create your own controller you need to extend to the module: **sap/fe/core/rootView/NavContainer.controller**
+:::
+
+::: code-group
+
+```xml [Root.view.xml]
+<NavContainer id="appContent" />
+```
+
+:::
+
+::: code-group
+
+```json [manifest.json] {3}
+"routing": {
+    "config": {
+        "controlId": "appContent"
+    }
+}
+```
+:::
+
+The rootView tells your app what it should load first. From there it will find the NavContainer and load the Component for the corresponding route.
+
+::: code-group
+
+```json [manifest.json]
+"rootView": {
+    "id": "RootView",
+    "viewName": "fpm.ext.main.view.Root"
+}
+```
+
+:::
