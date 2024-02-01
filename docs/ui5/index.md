@@ -1,6 +1,6 @@
 # UI5 Page
 
-To implement an OData V4 cap service
+This Page explains how to implement an OData V4 CAP Service
 
 ## Basics
 
@@ -28,7 +28,7 @@ Alternatively, we can create the binding directly in the frontend.
 
 The sPath sometimes comes up when talking about databindings.
 localhost:4004/service/**entity(key)**
-The **bold** part is what we call the sPath and is how we search for individual entities.
+The **bold** part is what we call the sPath it allows to search for individual entities.
 
 # CRUD
 
@@ -66,7 +66,7 @@ Reading is done using data bindings. Alternatively we can also use some function
 
 **requestObject:** Returns a promise on the value for the given path relative to the context.
 
-**requestProperty:** Returns a promise on the property value(s) for the given path(s) relative to the context. The value(s) will be requested from the back end if necessary.
+**requestProperty:** Returns a promise on the property value(s) for the given path(s) relative to the context. The value(s) will be requested from the backend if necessary.
 
 **getObject:** Returns the value for the given path relative to this context
 
