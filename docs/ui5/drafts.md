@@ -66,7 +66,7 @@ this.getView().setBusy(false);
 oNewObject.getPath(); // [!code focus]
 ```
 
-The "getPath()" function can be used to bind the element to whatever you want.
+The [**getPath()**](https://sapui5.hana.ondemand.com/sdk/#/api/sap.ui.model.Binding%23methods/getPath) function can be used to bind the element to whatever you want.
 
 ### Edit an existing object
 

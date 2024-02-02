@@ -1,6 +1,6 @@
 # Remote Service
 
-The consumption of any Remote Service first requires the installation of the following packages: **@sap-cloud-sdk/resilience** and **@sap-cloud-sdk/http-client**.
+The consumption of any Remote Service first requires the installation of the following packages: [**@sap-cloud-sdk/resilience**](https://www.npmjs.com/package/@sap-cloud-sdk/resilience) and [**@sap-cloud-sdk/http-client**](https://www.npmjs.com/package/@sap-cloud-sdk/http-client).
 
 To install these packages, run the following commands:
 
@@ -14,10 +14,10 @@ npm i @sap-cloud-sdk/http-client
 
 ## OData Service
 
-You begin, by downloading the **.edmx** file for the respective Service and importing it using the provided command. (The **.edmx** file can be found under the API Specification on the Buissness Accelerator Hub)
+You begin, by downloading the **.edmx** file for the respective Service and importing it using the provided command. (The **.edmx** file can be found under the API Specification on the Business Accelerator Hub)
 
 ```sh
-cds import <"filepath">
+cds import <filepath>
 ```
 
 The external service will be added automatically to your package.json.
