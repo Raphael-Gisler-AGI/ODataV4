@@ -1,0 +1,1 @@
+import{_ as a,o as e,c as s,R as t}from"./chunks/framework.tOkQcohr.js";const u=JSON.parse('{"title":"UI5 Page","description":"","frontmatter":{},"headers":[],"relativePath":"ui5/index.md","filePath":"ui5/index.md"}'),i={name:"ui5/index.md"},n=t("",38),h=[n];function r(o,p,l,d,c,k){return e(),s("div",null,h)}const E=a(i,[["render",r]]);export{u as __pageData,E as default};
