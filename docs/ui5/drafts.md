@@ -14,15 +14,15 @@ service Service {
 
 A draft is a temporary copy of an object, indicated by the IsActiveEntity column which is part of the key. An object can also have a draft, indicated by the HasDraftEntity column.
 
-Entities with draft functionality cannot be created or edited directly. These functions are performed on the drafts and are subsequently applied to the object.
+Entities with draft functionality cannot be created nor edited directly. These functions are performed on the drafts and are subsequently applied to the object.
 
-When we create, only a draft is created and not an actual object. In order to create the object, we have to 'activate' the draft.
+When you "create", only a draft is created and not an actual object. In order to create the object, you have to 'activate' the draft.
 
 To edit an object, a draft must first be created. The draft can then be edited before being activated.
 
 ### Read
 
-If we do a normal binding as we always would we only objects are shown and not drafts.
+If you do a normal binding as you always would, then only objects are shown and not drafts.
 
 To also see Drafts you have to write a filter to do so.
 
@@ -66,7 +66,7 @@ this.getView().setBusy(false);
 oNewObject.getPath(); // [!code focus]
 ```
 
-The getPath() function can be used to bind the element to whatever we want.
+The [**getPath()**](https://sapui5.hana.ondemand.com/sdk/#/api/sap.ui.model.Binding%23methods/getPath) function can be used to bind the element to whatever you want.
 
 ### Edit an existing object
 
@@ -76,7 +76,7 @@ To edit an existing object, it is necessary to create a draft of it. However, si
 if (context.getProperty("HasDraftEntity")) return;
 ```
 
-To create a draft from an object, we need to write a normal context binding (element binding) and then call the cap created. Be careful not to forget that IsActiveEntity is part of the key.
+To create a draft from an object, you need to write a normal context binding (element binding) and then call the CAP created. Be careful not to forget that IsActiveEntity is part of the key.
 
 ```javascript
 this.getOwnerComponent()
@@ -87,7 +87,7 @@ this.getOwnerComponent()
 
 ### Activate
 
-To activate a draft, we need to write a normal context binding (element binding) and then call the cap created. Be careful not to forget that IsActiveEntity is part of the key.
+To activate a draft, you need to write a normal context binding (element binding) and then call the CAP created. Be careful not to forget that IsActiveEntity is part of the key.
 
 ```javascript
 this.getOwnerComponent()
