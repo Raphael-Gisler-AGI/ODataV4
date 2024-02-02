@@ -4,6 +4,12 @@ All you need to know about how to use OData V4 with CAP and UI5
 
 The website is hosted [here](https://raphael-gisler-agi.github.io/ODataV4/).
 
+## Setting the Standard
+When mentioning a function the function should be documented as:
+```markdown
+[**fnName()**](link_to_documentation)
+```
+
 ## Getting Started
 
 ### Installation

@@ -15,10 +15,12 @@ hero:
 
 features:
   - title: Drafts
-    details: How to handle drafts in UI5 using OData V4
+    details: How to implement Draft Handling in UI5 using ODataV4
     link: /ui5/drafts
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Batch Control
+    link: /ui5/batchcontrol
+    details: How to implement Batch Control in UI5 using OData V4
+  - title: Flexible Programming Model
+    link: /ui5/fpm
+    details: How to utilize the Flexible Programming Model
 ---
