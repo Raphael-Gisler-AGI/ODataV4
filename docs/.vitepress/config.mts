@@ -7,6 +7,9 @@ export default defineConfig({
   title: "OData V4",
   description: "A documentation for working with OData V4 using CAP and UI5",
   themeConfig: {
+    search: {
+      provider: "local",
+    },
     nav: [
       { text: "Home", link: "/" },
       { text: "Documentation", link: "/ui5/" },
